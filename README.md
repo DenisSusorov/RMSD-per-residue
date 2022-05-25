@@ -5,7 +5,7 @@ The resulting file contains ATOMs common between the two PDBs, with coordinates 
 
 1. bash with gawk
 
-2. In the two PDB files, same protein/nucleic acid chains should have the same names. Chain names can be changed through Pymol, Chimera, Phenix, etc.) 
+2. In the two PDB files, same protein/nucleic acid chains should have the same names. Chain names can be changed through Pymol, Chimera, Phenix, etc. 
 
 3. PDB files should NOT have SegID column. The majority of PDB files downloaded from PDBdatabase do not have this column by default. 
 
