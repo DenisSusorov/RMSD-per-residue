@@ -1,5 +1,5 @@
 # RMSD-per-residue
-This bash script calculates per residue RMSD between two PDB files (without any alignments). The script considers only the same ATOMs between the two PDBs, no need to use models with the identical number of atoms. 
+This bash script calculates per residue RMSD between two PDB files (without any alignments). The script works on atoms common in the two PDBs (no need to use models with identical number of residues). 
 The resulting file contains ATOMs common between the two PDBs, with coordinates from the first PDB and with per residue RMSD in the b-factor column.  
 **Requirements**:
 
