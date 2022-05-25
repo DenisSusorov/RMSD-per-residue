@@ -1,2 +1,22 @@
 # RMSD-per-residue
-this bash script calculates per residue RMSD between two PDB files
+This bash script calculates per residue RMSD between two PDB files (without any alignments). The script considers only the same ATOMs between the two PDBs, no need to use models with the identical number of atoms. 
+The result is coordinates from the first PDB, of ATOMS common with the second PDB, with per residue RMSD in the b-factor column. This PDB can be used for comparisons or visualizations in Pymol, Chimera etc. 
+
+**Requirements**:
+
+1. bash with gawk
+
+2. In the two PDB files, same protein/nucleic acid chains should have the same names. Chain names can be changed through Pymol, Chimera, Phenix etc.) 
+
+3. PDB files should NOT have SegID column. The majority of PDB files downloaded from PDBdatabase do not have this column by default. 
+
+4. PDB files should have bfactor column set to 0 (in ChimeraX, setattr atoms bfactor 0) 
+
+**Example of use** (with the help of ChimeraX):
+
+1. I aligned two models of ribosome by a chain in the large subunit to find the relative orientations for small subunits. I set bfactors to 0 (setattr atoms bfactor 0) and saved both small subunits as separate PDB files. 
+<img width="1341" alt="image2" src="https://user-images.githubusercontent.com/106203779/170151769-3c5d02a3-fc1f-4f2f-9bcf-e1cf26454751.png">
+2. I run the script and got [NAME of the first PDB]-RMSD.pdb. Here, the PDB is colored by bfactor (in ChimeraX toolbar, molecule display->b-factor), which in this case represents coloring by RMSD.
+<img width="1341" alt="image3" src="https://user-images.githubusercontent.com/106203779/170151773-de68d24a-70c2-44a8-8cc5-af239d771cfe.png">
+3. I needed to select atoms which have the highest RMSD to design a mask for the most flexible parts of the molecule. To select the atoms I used the command  "select #2@@bfactor>2.5 & mainchain" in ChimeraX (I selected atoms with RMSD>2.5 Angstrom using only backbones)
+<img width="1341" alt="image4" src="https://user-images.githubusercontent.com/106203779/170151780-7ed11408-4617-49e9-8bb7-876d57a3e649.png">
