@@ -5,7 +5,7 @@ This bash script extracts matching atoms in two PDBs and calculates RMSD for the
 
 1. bash with gawk
 
-2. Same protein/nucleic acid chains should have same names. Chain names can be changed through Pymol, Chimera, Phenix, etc. 
+2. In the two PDBs, same protein/nucleic acid chains should have the same chain IDs. Chain IDs can be changed through Pymol, Chimera, Phenix, etc. 
 
 3. PDB files should NOT have SegID column. The majority of PDB files downloaded from PDBdatabase do not have this column by default. 
 
